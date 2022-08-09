@@ -24,7 +24,7 @@ public class Controller {
       String input = sc.nextLine();
       changeDigit(input);
 
-      //Pull handle
+      //Print pull handle
       ui.pullHandle();
 
       //Set random letters
@@ -37,7 +37,7 @@ public class Controller {
   }
 
   public void setRandomFirstDigit() {
-    if (isThirdDigitChangeable) {
+    if (isFirstDigitChangeable) {
       char digit = (char) getRandomCodePoint();
       firstDigit = Character.toString(digit);
     }
