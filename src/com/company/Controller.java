@@ -12,6 +12,8 @@ public class Controller {
   boolean isFirstDigitChangeable = true;
   boolean isSecondDigitChangeable = true;
   boolean isThirdDigitChangeable = true;
+  int CODEPOINTLOWERBOUND = 65;
+  int CODEPOINTUPPERBOUND = 91;
 
 
   public void startProgram() {
@@ -59,7 +61,7 @@ public class Controller {
 
   public int getRandomCodePoint() {
     Random random = new Random();
-    int codePoint = random.nextInt(65, 91);
+    int codePoint = random.nextInt(CODEPOINTLOWERBOUND, CODEPOINTUPPERBOUND);
     return codePoint;
   }
 
