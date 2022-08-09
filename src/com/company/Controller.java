@@ -20,7 +20,12 @@ public class Controller {
     ui.printWelcome();
     boolean runProgram = true;
     while (runProgram) {
+      //Pull handle
+      sc.nextLine();
+
+      //Print displayed digits
       ui.printDigits(firstDigit, secondDigit, thirdDigit);
+
       //Choose to lock a digit
       ui.lockDigit();
       String input = sc.nextLine();
@@ -33,7 +38,6 @@ public class Controller {
       setRandomFirstDigit();
       setRandomSecondDigit();
       setRandomThirdDigit();
-
 
     }
   }
@@ -70,6 +74,7 @@ public class Controller {
       ui.chooseDigit();
       String chosenDigit = sc.nextLine();
       lockDigit(chosenDigit);
+      ui.printDigits(firstDigit, secondDigit, thirdDigit);
     }
   }
 
