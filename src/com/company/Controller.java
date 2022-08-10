@@ -10,12 +10,12 @@ public class Controller {
   Digit digit2 = new Digit("B", true);
   Digit digit3 = new Digit("C", true);
 
-  String firstDigit = "A";
+ /* String firstDigit = "A";
   String secondDigit = "B";
   String thirdDigit = "C";
   boolean isFirstDigitChangeable = true;
   boolean isSecondDigitChangeable = true;
-  boolean isThirdDigitChangeable = true;
+  boolean isThirdDigitChangeable = true;*/
   int CODEPOINTLOWERBOUND = 65;
   int CODEPOINTUPPERBOUND = 75;
 
@@ -28,7 +28,7 @@ public class Controller {
       sc.nextLine();
 
       //Print displayed digits
-      ui.printDigits(firstDigit, secondDigit, thirdDigit);
+      ui.printDigits(digit1.getDigit(), digit2.getDigit(), digit3.getDigit());
 
       //Choose to lock a digit
       ui.lockDigit();
@@ -92,17 +92,17 @@ public class Controller {
       ui.chooseDigit();
       String chosenDigit = sc.nextLine();
       lockDigit(chosenDigit);
-      ui.printDigits(firstDigit, secondDigit, thirdDigit);
+      ui.printDigits(digit1.getDigit(), digit2.getDigit(), digit3.getDigit());
     }
   }
 
   public void lockDigit(String chosenDigit) {
     if (chosenDigit.equals("1")) {
-      isFirstDigitChangeable = false;
+      digit1.setDigitChangeable(false);
     } else if (chosenDigit.equals("2")) {
-      isSecondDigitChangeable = false;
+      digit2.setDigitChangeable(false);
     } else if (chosenDigit.equals("3")) {
-      isThirdDigitChangeable = false;
+      digit3.setDigitChangeable(false);
     }
   }
 

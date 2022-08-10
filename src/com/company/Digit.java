@@ -9,5 +9,15 @@ public class Digit {
     this.isDigitChangeable = isDigitChangeable;
   }
 
+  public String getDigit(){
+    return digit;
+  }
 
+  public boolean isDigitChangeable(){
+    return isDigitChangeable;
+  }
+
+  public void setDigitChangeable(boolean digitChangeable) {
+    this.isDigitChangeable = digitChangeable;
+  }
 }
