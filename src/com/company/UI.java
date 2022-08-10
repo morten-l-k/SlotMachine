@@ -25,4 +25,8 @@ public class UI {
     System.out.println("First digit: Press 1 | Second digit: Press 2 | Third digit: Press 3");
   }
 
+  public void printYouWin(){
+    System.out.println("Congratulations, you win!!!");
+  }
+
 }

@@ -9,20 +9,13 @@ public class Controller {
   Digit digit1 = new Digit("A", true);
   Digit digit2 = new Digit("B", true);
   Digit digit3 = new Digit("C", true);
-
-  /* String firstDigit = "A";
-   String secondDigit = "B";
-   String thirdDigit = "C";
-   boolean isFirstDigitChangeable = true;
-   boolean isSecondDigitChangeable = true;
-   boolean isThirdDigitChangeable = true;*/
   int CODEPOINTLOWERBOUND = 65;
   int CODEPOINTUPPERBOUND = 75;
+  boolean runProgram = true;
 
 
   public void startProgram() {
     ui.printWelcome();
-    boolean runProgram = true;
     while (runProgram) {
       //Pull handle
       sc.nextLine();
@@ -38,8 +31,23 @@ public class Controller {
       //Print pull handle
       ui.pullHandle();
 
+      //Randomizes confirmed changeable digits
       setRandomDigits();
+
+      //Make method to check if all digits are the same
+      if (checkDigits()) {
+        ui.printYouWin();
+        runProgram = false;
+      }
     }
+  }
+
+  public boolean checkDigits() {
+    boolean tmpBoolean = false;
+    if (digit1.getDigit().equals(digit2.getDigit()) && digit2.getDigit().equals(digit3.getDigit())) {
+      tmpBoolean = true;
+    }
+    return tmpBoolean;
   }
 
   public void setRandomDigits() {
@@ -71,8 +79,7 @@ public class Controller {
 
   public int getRandomCodePoint() {
     Random random = new Random();
-    int codePoint = random.nextInt(CODEPOINTLOWERBOUND, CODEPOINTUPPERBOUND);
-    return codePoint;
+    return random.nextInt(CODEPOINTLOWERBOUND, CODEPOINTUPPERBOUND);
   }
 
   public void changeDigit(String input) {
@@ -97,7 +104,5 @@ public class Controller {
   public static void main(String[] args) {
     Controller obj = new Controller();
     obj.startProgram();
-
-
   }
 }
