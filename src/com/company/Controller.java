@@ -6,6 +6,10 @@ import java.util.Scanner;
 public class Controller {
   UI ui = new UI();
   Scanner sc = new Scanner(System.in);
+  Digit digit1 = new Digit("A", true);
+  Digit digit2 = new Digit("B", true);
+  Digit digit3 = new Digit("C", true);
+
   String firstDigit = "A";
   String secondDigit = "B";
   String thirdDigit = "C";
@@ -13,7 +17,7 @@ public class Controller {
   boolean isSecondDigitChangeable = true;
   boolean isThirdDigitChangeable = true;
   int CODEPOINTLOWERBOUND = 65;
-  int CODEPOINTUPPERBOUND = 91;
+  int CODEPOINTUPPERBOUND = 75;
 
 
   public void startProgram() {
@@ -34,15 +38,29 @@ public class Controller {
       //Print pull handle
       ui.pullHandle();
 
-      //Set random letters
-      setRandomFirstDigit();
-      setRandomSecondDigit();
-      setRandomThirdDigit();
-
+      // TODO: 10/08/2022 refactor to avoid DRY
+      setRandomDigits();
+      // TODO: 10/08/2022 make digits into objects. Make class for digits 
     }
   }
 
-  public void setRandomFirstDigit() {
+  public void setRandomDigits(){
+    setRandomDigit(isFirstDigitChangeable, firstDigit);
+    setRandomDigit(isSecondDigitChangeable, secondDigit);
+    setRandomDigit(isThirdDigitChangeable, thirdDigit);
+   /* setRandomFirstDigit();
+    setRandomSecondDigit();
+    setRandomThirdDigit();*/
+  }
+
+  public void setRandomDigit(boolean isDigitChangeable, String digit){
+    if(isDigitChangeable) {
+      char tmpDigit = (char) getRandomCodePoint();
+      digit = Character.toString(tmpDigit);
+    }
+  }
+
+ /* public void setRandomFirstDigit() {
     if (isFirstDigitChangeable) {
       char digit = (char) getRandomCodePoint();
       firstDigit = Character.toString(digit);
@@ -61,7 +79,7 @@ public class Controller {
       char digit = (char) getRandomCodePoint();
       thirdDigit = Character.toString(digit);
     }
-  }
+  }*/
 
   public int getRandomCodePoint() {
     Random random = new Random();
