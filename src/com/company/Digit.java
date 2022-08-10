@@ -20,4 +20,8 @@ public class Digit {
   public void setDigitChangeable(boolean digitChangeable) {
     this.isDigitChangeable = digitChangeable;
   }
+
+  public void setDigit(String digit){
+    this.digit = digit;
+  }
 }

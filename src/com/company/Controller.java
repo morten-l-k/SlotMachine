@@ -10,12 +10,12 @@ public class Controller {
   Digit digit2 = new Digit("B", true);
   Digit digit3 = new Digit("C", true);
 
- /* String firstDigit = "A";
-  String secondDigit = "B";
-  String thirdDigit = "C";
-  boolean isFirstDigitChangeable = true;
-  boolean isSecondDigitChangeable = true;
-  boolean isThirdDigitChangeable = true;*/
+  /* String firstDigit = "A";
+   String secondDigit = "B";
+   String thirdDigit = "C";
+   boolean isFirstDigitChangeable = true;
+   boolean isSecondDigitChangeable = true;
+   boolean isThirdDigitChangeable = true;*/
   int CODEPOINTLOWERBOUND = 65;
   int CODEPOINTUPPERBOUND = 75;
 
@@ -38,48 +38,36 @@ public class Controller {
       //Print pull handle
       ui.pullHandle();
 
-      // TODO: 10/08/2022 refactor to avoid DRY
       setRandomDigits();
-      // TODO: 10/08/2022 make digits into objects. Make class for digits 
     }
   }
 
-  public void setRandomDigits(){
-    setRandomDigit(isFirstDigitChangeable, firstDigit);
-    setRandomDigit(isSecondDigitChangeable, secondDigit);
-    setRandomDigit(isThirdDigitChangeable, thirdDigit);
-   /* setRandomFirstDigit();
+  public void setRandomDigits() {
+    setRandomFirstDigit();
     setRandomSecondDigit();
-    setRandomThirdDigit();*/
+    setRandomThirdDigit();
   }
 
-  public void setRandomDigit(boolean isDigitChangeable, String digit){
-    if(isDigitChangeable) {
-      char tmpDigit = (char) getRandomCodePoint();
-      digit = Character.toString(tmpDigit);
-    }
-  }
-
- /* public void setRandomFirstDigit() {
-    if (isFirstDigitChangeable) {
+  public void setRandomFirstDigit() {
+    if (digit1.isDigitChangeable()) {
       char digit = (char) getRandomCodePoint();
-      firstDigit = Character.toString(digit);
+      digit1.setDigit(Character.toString(digit));
     }
   }
 
   public void setRandomSecondDigit() {
-    if (isSecondDigitChangeable) {
+    if (digit2.isDigitChangeable()) {
       char digit = (char) getRandomCodePoint();
-      secondDigit = Character.toString(digit);
+      digit2.setDigit(Character.toString(digit));
     }
   }
 
   public void setRandomThirdDigit() {
-    if (isThirdDigitChangeable) {
+    if (digit3.isDigitChangeable()) {
       char digit = (char) getRandomCodePoint();
-      thirdDigit = Character.toString(digit);
+      digit3.setDigit(Character.toString(digit));
     }
-  }*/
+  }
 
   public int getRandomCodePoint() {
     Random random = new Random();
